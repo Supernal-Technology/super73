@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supernal × Super73 · Customer Service AI Operating System</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, sans-serif;
+  --text: #1A1A1A; --text-2: #444; --text-3: #666; --text-4: #999;
+  --bg: #FFF; --bg-2: #F5F5F5; --bg-3: #EBEBEB; --border: #D0D0D0;
+  --blue: #4D62D9; --blue-light: #EEF1FF; --blue-dark: #1E3080;
+  --green: #1A9E5C; --green-light: #E8F8F0;
+  --amber: #D97706; --amber-light: #FEF3CD;
+  --purple: #7C3AED; --purple-light: #F0EBFF;
+  --lime: #E3EB84; --lime-dark: #8B9A3B;
+  --radius-card: 16px; --radius-pill: 9999px;
+  --shadow-card: 0 25px 50px -12px rgba(0,0,0,0.12);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.tag { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--text-3); border: 1px solid var(--border); border-radius: 4px; padding: 4px 10px; }
+
+/* HEADER */
+.site-header {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(228,228,228,0.6);
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+}
+.site-header .container { display: flex; align-items: center; justify-content: space-between; }
+.header-brand { font-size: 13px; font-weight: 600; letter-spacing: .04em; }
+.header-brand span { color: var(--text-3); margin: 0 6px; font-weight: 400; }
+.header-nav { display: flex; gap: 24px; }
+.header-nav a { font-size: 12px; font-weight: 500; color: var(--text-3); text-decoration: none; letter-spacing: .02em; transition: color .15s; }
+.header-nav a:hover, .header-nav a.active { color: var(--text); }
+.confidential-pill { background: var(--bg-3); border-radius: 4px; padding: 3px 10px; font-size: 11px; color: var(--text-4); font-weight: 500; }
+
+/* HERO */
+.hero {
+  padding: 96px 0 80px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, #F0F4FF 0%, #F7F7F7 60%, #FEFCE8 100%);
+}
+.hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--text-3); margin-bottom: 24px; }
+.hero-heading { font-family: var(--serif); font-size: 58px; font-weight: 700; line-height: 1.05; margin-bottom: 16px; white-space: nowrap; }
+.hero-tagline { font-family: var(--sans); font-size: 26px; font-weight: 700; letter-spacing: -0.01em; color: var(--text-2); margin-bottom: 28px; white-space: nowrap; }
+.hero-sub { font-size: 18px; line-height: 1.65; color: var(--text-2); max-width: 680px; margin-bottom: 36px; font-weight: 300; }
+
+.north-star { display: flex; align-items: center; gap: 16px; padding: 16px 24px; background: rgba(255,255,255,0.9); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 36px; }
+.north-star > div:not(.north-star-divider) { flex: 1 1 0; min-width: 0; }
+.north-star-divider { flex: 0 0 1px; }
+.north-star-label { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--text-4); }
+.north-star-value { font-size: 15px; font-weight: 600; color: var(--text); }
+.north-star-divider { width: 1px; height: 32px; background: var(--border); }
+
+.already-built-wrap { display: flex; gap: 16px; align-items: flex-start; }
+.already-built-wrap > * { flex: 1 1 0; min-width: 0; }
+.built-block { padding: 20px 24px; background: rgba(255,255,255,0.75); border: 1px solid var(--border); border-radius: 12px; }
+.built-takeaway { margin-top: 16px; font-size: 13px; color: var(--text-3); line-height: 1.5; }
+.built-label { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--text-4); margin-bottom: 12px; }
+.built-items { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.built-item { font-size: 12px; font-weight: 500; color: var(--text-2); background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 5px 14px; }
+.extend-block { padding: 20px 24px; background: rgba(77,98,217,0.05); border: 1px solid rgba(77,98,217,0.2); border-radius: 12px; }
+.extend-items { list-style: none; }
+.extend-items li { font-size: 13px; color: var(--text-2); line-height: 1.55; padding: 7px 0; display: flex; gap: 10px; }
+.extend-items strong { color: var(--text); font-weight: 600; }
+.extend-arrow { color: var(--blue); font-weight: 700; flex-shrink: 0; }
+
+/* SECTION HEADERS */
+.section-header { margin-bottom: 40px; }
+.section-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--text-4); margin-bottom: 10px; }
+.section-title { font-family: var(--sans); font-size: 36px; font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 12px; }
+.section-sub { font-size: 15px; color: var(--text-3); line-height: 1.6; max-width: 760px; }
+
+/* WHAT WE HEARD */
+.problem { padding: 72px 0; background: var(--bg-2); border-bottom: 1px solid var(--border); }
+.problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.problem-card { padding: 28px 32px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-card); transition: box-shadow .2s; display: flex; flex-direction: column; }
+.problem-card:hover { box-shadow: var(--shadow-card); }
+.problem-card-worry { border-left: 3px solid var(--blue); }
+.problem-quote { font-family: var(--serif); font-size: 18px; font-style: italic; line-height: 1.5; margin-bottom: 14px; }
+.problem-quote::before { content: '\201C'; } .problem-quote::after { content: '\201D'; }
+.problem-attr { font-size: 11px; font-weight: 600; color: var(--text-3); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 12px; }
+.problem-explain { font-size: 14px; line-height: 1.6; color: var(--text-2); }
+.worry-answer { margin-top: 14px; padding: 10px 14px; background: var(--blue-light); border-radius: 8px; font-size: 13px; color: var(--blue-dark); line-height: 1.5; }
+.worry-answer-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
+
+/* TIMELINE */
+.tl-swim-outer { overflow-x: auto; margin-top: 40px; border: 1px solid var(--border); border-radius: var(--radius-card); padding: 24px 0 32px; }
+.tl-swim-inner { min-width: 1000px; padding: 0 24px; }
+.tl-swim-title { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-4); margin-bottom: 12px; }
+.tl-swim-months { display: grid; grid-template-columns: 180px repeat(12, 1fr); margin-bottom: 6px; }
+.tl-swim-month-label { font-size: 9px; color: var(--text-4); font-weight: 600; letter-spacing: .06em; }
+.tl-swim-month-cell { font-size: 9px; color: var(--text-4); text-align: center; font-weight: 600; padding-bottom: 4px; }
+.tl-swim-wrapper { position: relative; }
+.tl-lane { display: grid; grid-template-columns: 180px repeat(12, 1fr); align-items: center; min-height: 34px; margin-bottom: 3px; }
+.tl-lane-label { font-size: 11px; font-weight: 600; color: var(--text-2); padding-right: 10px; line-height: 1.3; }
+.tl-lane-label small { display: block; font-size: 9px; font-weight: 400; color: var(--text-4); margin-top: 1px; }
+.tl-bar { height: 24px; border-radius: 3px; margin: 0 2px; display: flex; align-items: center; padding: 0 8px; font-size: 9px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; overflow: hidden; white-space: nowrap; position: relative; z-index: 1; }
+.tl-bar-gap { background: transparent; }
+.tl-bar-strategy { background: var(--amber-light); color: var(--amber); }
+.tl-bar-a { background: var(--blue); color: #fff; }
+.tl-bar-a-maint { background: var(--blue-light); color: var(--blue); border: 1px dashed var(--blue); }
+.tl-bar-b { background: var(--green); color: #fff; }
+.tl-bar-b-maint { background: var(--green-light); color: var(--green); border: 1px dashed var(--green); }
+.tl-bar-c { background: var(--purple); color: #fff; }
+.tl-bar-c-maint { background: var(--purple-light); color: var(--purple); border: 1px dashed var(--purple); }
+.tl-milestone-row { display: grid; grid-template-columns: 180px repeat(12, 1fr); padding: 6px 0 2px; border-top: 1px dashed var(--amber-light); margin-top: 4px; min-height: 26px; }
+.milestone-badge { display: inline-block; background: var(--amber-light); color: var(--amber); border: 1px solid rgba(217,119,6,.3); border-radius: var(--radius-pill); font-size: 8.5px; font-weight: 700; padding: 3px 8px; white-space: nowrap; letter-spacing: .04em; }
+.tl-grid-overlay { position: absolute; inset: 0; display: grid; grid-template-columns: 180px repeat(12, 1fr); pointer-events: none; z-index: 0; }
+.tl-grid-col { border-left: 1px dashed var(--border); }
+.roadmap-footnote { margin: 20px 0 0; font-size: 12px; color: var(--text-4); font-style: italic; }
+
+/* ROADMAP */
+.roadmap { padding: 80px 0; border-bottom: 1px solid var(--border); }
+.roadmap-modules { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 40px; }
+.module-card { padding: 28px; background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius-card); display: flex; flex-direction: column; }
+.module-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; margin-bottom: 16px; }
+.module-title { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+.module-desc { font-size: 14px; line-height: 1.6; color: var(--text-2); margin-bottom: 12px; }
+.module-meta { font-size: 12px; color: var(--text-4); font-weight: 500; margin-top: auto; }
+.module-card.mc-soon { border-style: dashed; background: var(--bg); }
+.soon-pill { display: inline-block; background: var(--bg-3); color: var(--text-3); font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 9px; border-radius: var(--radius-pill); }
+.phase-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-4); margin-bottom: 6px; }
+.deliverable-group.dg-soon { background: var(--bg-2); border: 1px dashed var(--border); border-radius: var(--radius-card); padding: 28px 32px; }
+.dg-soon .deliverable-row { border-bottom-color: var(--border); }
+.dg-soon .del-name { color: var(--text-2); }
+
+/* DELIVERABLES */
+.deliverables { padding: 80px 0; border-bottom: 1px solid var(--border); }
+.deliverable-group { margin-bottom: 48px; }
+.deliverable-group:last-child { margin-bottom: 0; }
+.group-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--border); }
+.group-title { font-size: 15px; font-weight: 700; }
+.deliverable-row { display: grid; grid-template-columns: 36px 1fr; gap: 16px; align-items: start; padding: 16px 0; border-bottom: 1px solid var(--bg-3); }
+.deliverable-row:last-child { border-bottom: none; }
+.del-ref { font-size: 13px; font-weight: 700; color: var(--text-4); padding-top: 2px; }
+.del-name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.del-desc { font-size: 13px; color: var(--text-2); line-height: 1.5; }
+.kpi-strip { margin-top: 20px; padding: 14px 18px; border-radius: 10px; font-size: 13px; line-height: 1.5; }
+.kpi-strip strong { font-weight: 700; }
+.kpi-strip-a { background: var(--blue-light); color: var(--blue-dark); }
+.kpi-strip-b { background: var(--green-light); color: #0f5c36; }
+.kpi-strip-c { background: var(--purple-light); color: #4c1d95; }
+
+/* COMMERCIALS */
+.commercials { padding: 80px 0; background: var(--bg-2); border-bottom: 1px solid var(--border); }
+.commercial-card { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-card); overflow: hidden; }
+.commercial-head { padding: 28px 32px 24px; background: var(--lime); }
+.commercial-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--lime-dark); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.commercial-badge { background: #1A1A1A; color: var(--lime); font-size: 9px; font-weight: 700; padding: 2px 9px; border-radius: var(--radius-pill); letter-spacing: .06em; }
+.commercial-name { font-family: var(--serif); font-size: 26px; font-weight: 700; margin-bottom: 4px; }
+.commercial-tagline { font-size: 13px; color: var(--lime-dark); margin-bottom: 16px; }
+.commercial-price { font-size: 52px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+.commercial-price small { font-size: 16px; font-weight: 400; color: var(--lime-dark); margin-left: 4px; }
+.commercial-breakdown { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid rgba(0,0,0,0.08); margin-top: 20px; }
+.breakdown-item { padding: 14px 0; }
+.breakdown-item:first-child { padding-right: 20px; border-right: 1px solid rgba(0,0,0,0.08); }
+.breakdown-item:last-child { padding-left: 20px; }
+.breakdown-label { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--lime-dark); margin-bottom: 4px; }
+.breakdown-amount { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
+.breakdown-desc { font-size: 12px; color: var(--lime-dark); margin-top: 2px; line-height: 1.4; }
+.commercial-body { padding: 28px 32px; }
+.commercial-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 16px 0; margin-bottom: 24px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.commercial-meta-item { padding: 0 24px; border-left: 1px solid var(--border); }
+.commercial-meta-item:first-child { padding-left: 0; border-left: none; }
+.commercial-meta-label { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-4); margin-bottom: 4px; }
+.commercial-meta-value { font-size: 18px; font-weight: 700; }
+.commercial-meta-value small { font-size: 12px; font-weight: 500; color: var(--text-3); }
+.commercial-features { list-style: none; }
+.commercial-features li { font-size: 13px; color: var(--text-2); line-height: 1.55; padding: 7px 0; border-bottom: 1px solid var(--bg-3); display: flex; gap: 10px; }
+.commercial-features li:last-child { border-bottom: none; }
+.commercial-features li::before { content: '\2192'; color: var(--text-4); font-size: 11px; flex-shrink: 0; padding-top: 1px; }
+
+/* HOW WE WORK */
+.how-we-work { padding: 72px 0; background: var(--bg); border-bottom: 1px solid var(--border); }
+.hww-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 40px; }
+.hww-card { padding: 28px 24px; border: 1px solid var(--border); border-radius: var(--radius-card); background: var(--bg-2); }
+.hww-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.hww-desc { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+
+/* FOOTER */
+.site-footer { padding: 32px 0; border-top: 1px solid var(--border); background: var(--bg-2); }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; }
+.footer-brand { font-size: 13px; font-weight: 600; }
+.footer-meta { font-size: 12px; color: var(--text-4); }
+
+/* PASS-THROUGH COSTS */
+.passthrough { padding: 80px 0; border-bottom: 1px solid var(--border); background: var(--bg-2); }
+.pt-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 32px 36px; }
+.pt-card-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); margin-bottom: 24px; }
+.pt-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
+.pt-col { padding: 0 28px; border-left: 1px solid var(--bg-3); }
+.pt-col:first-child { padding-left: 0; border-left: none; }
+.pt-col-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-4); margin-bottom: 10px; }
+.pt-col-value { font-family: var(--serif); font-size: 40px; font-weight: 700; letter-spacing: -0.01em; line-height: 1; margin-bottom: 14px; }
+.pt-col-value small { font-family: var(--sans); font-size: 14px; font-weight: 400; color: var(--text-4); margin-left: 4px; }
+.pt-col-desc { font-size: 13px; color: var(--text-2); line-height: 1.55; }
+.pt-note { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--bg-3); font-size: 13px; color: var(--text-3); line-height: 1.55; }
+.pt-note strong { color: var(--text); font-weight: 700; }
+
+@media (max-width: 900px) {
+  .hero-heading { font-size: 38px; white-space: normal; }
+  .hero-tagline { font-size: 20px; white-space: normal; }
+  .pt-cols { grid-template-columns: 1fr; gap: 24px; }
+  .pt-col { padding: 0; border-left: none; }
+  .problem-grid, .roadmap-modules, .hww-grid { grid-template-columns: 1fr; }
+  .container { padding: 0 24px; }
+  .already-built-wrap { grid-template-columns: 1fr; }
+  .deliverable-row { grid-template-columns: 30px 1fr; }
+  .commercial-meta { grid-template-columns: 1fr; gap: 16px; }
+  .commercial-meta-item { padding: 0; border-left: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-brand">Supernal <span>×</span> Super73</div>
+    <nav class="header-nav">
+      <a href="#overview">Overview</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#deliverables">Deliverables</a>
+      <a href="#how-we-work">How it works</a>
+      <a href="#commercials">Investment</a>
+    </nav>
+    <div class="confidential-pill">Confidential</div>
+  </div>
+</header>
+
+<!-- HERO / OVERVIEW -->
+<section class="hero" id="overview">
+  <div class="container">
+    <div class="hero-eyebrow">Supernal × Super73 · Customer Service AI Operating System</div>
+    <h1 class="hero-heading">AI-Native Customer Support</h1>
+    <div class="hero-tagline">One funnel. One AI layer. Phone-first.</div>
+    <p class="hero-sub">For a brand whose community is its growth engine, support is where loyalty is won or lost. We unify a fragmented stack and put one AI Employee at the front door: it answers the phone, resolves the everyday cases, and hands the rest to the right team with full context.</p>
+
+    <div class="north-star">
+      <div>
+        <div class="north-star-label">North star</div>
+        <div class="north-star-value">From four fragmented intake points to one unified funnel, fronted by a single AI Employee.</div>
+      </div>
+      <div class="north-star-divider"></div>
+      <div>
+        <div class="north-star-label">Business case</div>
+        <div class="north-star-value">Every repeated question is a failure of the stack. Every context-less transfer is a failure of the handoff.</div>
+      </div>
+    </div>
+
+    <div class="already-built-wrap">
+      <div class="built-block">
+        <div class="built-label">What Super73 already has</div>
+        <div class="built-items">
+          <span class="built-item">Zendesk · helpdesk &amp; system of record</span>
+          <span class="built-item">Mavenoid · hardware troubleshooting</span>
+          <span class="built-item">Narvar · order tracking &amp; returns</span>
+          <span class="built-item">Knowledge base · docs, FAQs, manuals</span>
+          <span class="built-item">Four teams · Retail / Talent Pop / Dealer / Service</span>
+        </div>
+        <div class="built-takeaway">None of these is the problem; each does its job. The gap is that they don't share a customer, don't talk to each other, and leave the customer to guess which of four teams to call. A workflow problem, not a tooling one.</div>
+      </div>
+      <div class="extend-block">
+        <div class="built-label" style="color: var(--blue);">What we build on top</div>
+        <ul class="extend-items">
+          <li><span class="extend-arrow">→</span><span><strong>First, one customer.</strong> Zendesk, Mavenoid, and Narvar unified into one profile, so the AI Employee knows who's calling and their full history from the first second.</span></li>
+          <li><span class="extend-arrow">→</span><span><strong>Then, one front door.</strong> It answers the phone, handles the everyday cases on its own, and warm-transfers the rest with full context.</span></li>
+          <li><span class="extend-arrow">→</span><span><strong>Nothing gets ripped out.</strong> Zendesk stays the system of record; the AI Employee orchestrates the existing tools, it doesn't replace them.</span></li>
+          <li><span class="extend-arrow">→</span><span><strong>Then we scale.</strong> In Phase 2 every interaction becomes signal: failure trends to engineering, automatic warranty, one analytics view across the stack.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE HEARD -->
+<section class="problem" id="problem">
+  <div class="container">
+    <div class="tag">What we heard</div>
+    <div class="problem-grid" style="margin-top: 32px;">
+      <div class="problem-card">
+        <div class="problem-quote">A retail customer can't be transferred to Talent Pop. Dealers call a separate line. Service issues route to yet another team.</div>
+        <div class="problem-attr">Fragmentation cost</div>
+        <div class="problem-explain">Four teams, three tools, no shared customer. Every handoff is a cold restart, and on the phone, the priciest channel there is, that cost compounds into repeats and wait time. Fixing the front door is the highest-leverage move in support.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-quote">CS sits on a goldmine of product signals that never makes it to the product team in any structured way.</div>
+        <div class="problem-attr">Signal loss</div>
+        <div class="problem-explain">Every call carries which part failed, on which model, at what mileage, exactly the signal the product team needs to catch issues early. Today it dies as ticket text, so failure trends stay invisible until they're already expensive.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-quote">Mavenoid, Narvar, and Zendesk each offer AI separately. We want one consistent flow with one analytics layer.</div>
+        <div class="problem-attr">Orchestration gap</div>
+        <div class="problem-explain">Each tool ships its own AI, but none sees the inbound call or talks to the others. The fix isn't a fourth tool, it's one brain on top that calls each through its API and reads Shopify, NetSuite, and Comodule. Owned by Super73, not rented per resolution.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ROADMAP -->
+<section class="roadmap" id="roadmap">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Roadmap</div>
+      <h2 class="section-title">Ship one AI Employee first. Expand from there.</h2>
+      <p class="section-sub">Phase 1 puts a working AI Employee on the phone, scoped tight so it goes live fast.<br>The deeper intelligence work follows, once it's handling real calls.</p>
+    </div>
+    <div class="roadmap-modules">
+      <div class="module-card mc-blue">
+        <div class="module-tag" style="background: var(--blue-light); color: var(--blue-dark);">Phase 1</div>
+        <div class="module-title">Unified Foundation</div>
+        <div class="module-desc">Connect Zendesk, Mavenoid, and Narvar into one customer view, and bring the knowledge base into a place the AI Employee can answer from. The base the agent reasons over.</div>
+        <div class="module-meta">The groundwork for the AI Employee</div>
+      </div>
+      <div class="module-card mc-green">
+        <div class="module-tag" style="background: var(--green-light); color: var(--green);">Phase 1</div>
+        <div class="module-title">Customer Service AI Employee</div>
+        <div class="module-desc">Phone-first. It answers, resolves the everyday questions from the knowledge base, routes to the right team, and warm-transfers with full context. Every call logged in Zendesk.</div>
+        <div class="module-meta">The deliverable that goes live</div>
+      </div>
+      <div class="module-card mc-soon">
+        <div class="module-tag" style="background: var(--purple-light); color: var(--purple);">Phase 2 · Expansion</div>
+        <div class="module-title">Closed-Loop Intelligence</div>
+        <div class="module-desc">Deeper mid-call tool orchestration, automated warranty orders, and product-signal intelligence across the stack. Scoped by the end of month 2, beginning as soon as the AI Employee is live and stable.</div>
+        <div class="module-meta">Scoped by end of month 2</div>
+      </div>
+    </div>
+    <div class="tl-swim-outer">
+      <div class="tl-swim-inner">
+        <div class="tl-swim-title">12-month engagement · Phase 1 ships the AI Employee, Phase 2 expands on the same foundation</div>
+        <div class="tl-swim-months">
+          <div class="tl-swim-month-label">Track</div>
+          <div class="tl-swim-month-cell">M1</div><div class="tl-swim-month-cell">M2</div>
+          <div class="tl-swim-month-cell">M3</div><div class="tl-swim-month-cell">M4</div><div class="tl-swim-month-cell">M5</div>
+          <div class="tl-swim-month-cell">M6</div><div class="tl-swim-month-cell">M7</div><div class="tl-swim-month-cell">M8</div>
+          <div class="tl-swim-month-cell">M9</div><div class="tl-swim-month-cell">M10</div>
+          <div class="tl-swim-month-cell">M11</div><div class="tl-swim-month-cell">M12</div>
+        </div>
+        <div class="tl-swim-wrapper">
+          <div class="tl-grid-overlay">
+            <div></div>
+            <div class="tl-grid-col"></div><div class="tl-grid-col"></div><div class="tl-grid-col"></div>
+            <div class="tl-grid-col"></div><div class="tl-grid-col"></div><div class="tl-grid-col"></div>
+            <div class="tl-grid-col"></div><div class="tl-grid-col"></div><div class="tl-grid-col"></div>
+            <div class="tl-grid-col"></div><div class="tl-grid-col"></div><div class="tl-grid-col"></div>
+          </div>
+          <div class="tl-lane">
+            <div class="tl-lane-label">Strategy</div>
+            <div class="tl-bar tl-bar-strategy" style="grid-column: span 12;">AI strategy, roadmap, and weekly syncs</div>
+          </div>
+          <div class="tl-lane">
+            <div class="tl-lane-label">Foundation<small>Phase 1</small></div>
+            <div class="tl-bar tl-bar-a" style="grid-column: span 2;">Connect &amp; unify</div>
+            <div class="tl-bar tl-bar-a-maint" style="grid-column: span 10;">Kept in sync, always on</div>
+          </div>
+          <div class="tl-lane">
+            <div class="tl-lane-label">AI Employee<small>Phase 1</small></div>
+            <div class="tl-bar tl-bar-gap" style="grid-column: span 1;"></div>
+            <div class="tl-bar tl-bar-b" style="grid-column: span 3;">Build, test, and launch</div>
+            <div class="tl-bar tl-bar-b-maint" style="grid-column: span 8;">Live, answering real calls</div>
+          </div>
+          <div class="tl-lane">
+            <div class="tl-lane-label">Expansion<small>Phase 2</small></div>
+            <div class="tl-bar tl-bar-gap" style="grid-column: span 4;"></div>
+            <div class="tl-bar tl-bar-c" style="grid-column: span 4;">Warranty, tagging &amp; analytics</div>
+            <div class="tl-bar tl-bar-c-maint" style="grid-column: span 4;">Live and optimized</div>
+          </div>
+        </div>
+        <div class="tl-milestone-row">
+          <div></div>
+          <div></div>
+          <div><span class="milestone-badge">★ Phase 2 scoped</span></div>
+          <div></div>
+          <div><span class="milestone-badge">★ AI Employee live</span></div>
+          <div><span class="milestone-badge">★ Expansion begins · warranty + analytics</span></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <p class="roadmap-footnote">Phase 1 is the scope of this proposal: a live AI Employee, built in the first three months. Phase 2 is scoped by the end of month 2 and begins as soon as the AI Employee is live and stable, on the same foundation.</p>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="deliverables" id="deliverables">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Deliverables</div>
+      <h2 class="section-title">What Phase 1 delivers</h2>
+      <p class="section-sub">A short, plain list: the foundation plus the AI Employee that goes live on top of it. No metrics or targets here; we set those together at the scoping session, against your real data.</p>
+    </div>
+
+    <!-- MODULE A -->
+    <div class="deliverable-group">
+      <div class="group-header">
+        <span class="module-tag" style="background: var(--blue-light); color: var(--blue-dark);">Module A</span>
+        <span class="group-title">Unified Foundation</span>
+      </div>
+      <div class="deliverable-row">
+        <div class="del-ref">1</div>
+        <div>
+          <div class="del-name">The tools connected into one view</div>
+          <div class="del-desc">Zendesk, Mavenoid, and Narvar brought together so the AI Employee sees one picture of the customer instead of three disconnected ones.</div>
+        </div>
+      </div>
+      <div class="deliverable-row">
+        <div class="del-ref">2</div>
+        <div>
+          <div class="del-name">One customer across every team</div>
+          <div class="del-desc">A customer who has reached Retail, Dealer, and Service shows up as one person, not three separate contacts.</div>
+        </div>
+      </div>
+      <div class="deliverable-row">
+        <div class="del-ref">3</div>
+        <div>
+          <div class="del-name">A knowledge base the agent can answer from</div>
+          <div class="del-desc">Product docs, FAQs, and warranty basics, including the knowledge that today lives in people's heads, brought into one place the AI Employee can draw on.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULE B -->
+    <div class="deliverable-group">
+      <div class="group-header">
+        <span class="module-tag" style="background: var(--green-light); color: var(--green);">Module B</span>
+        <span class="group-title">The AI Employee</span>
+      </div>
+      <div class="deliverable-row">
+        <div class="del-ref">4</div>
+        <div>
+          <div class="del-name">Answers the phone and resolves the everyday cases</div>
+          <div class="del-desc">Picks up, understands the request, and handles the common questions directly from the knowledge base, in Super73's voice.</div>
+        </div>
+      </div>
+      <div class="deliverable-row">
+        <div class="del-ref">5</div>
+        <div>
+          <div class="del-name">Routes and warm-transfers with full context</div>
+          <div class="del-desc">When a human is needed, it sends the call to the right team (Retail / Dealer / Service) and hands them the full story: who the customer is, the bike, and what's already been tried. The customer never repeats themselves.</div>
+        </div>
+      </div>
+      <div class="deliverable-row">
+        <div class="del-ref">6</div>
+        <div>
+          <div class="del-name">Every conversation logged in Zendesk</div>
+          <div class="del-desc">Zendesk stays the system of record. Each call is captured there automatically, so history and audit stay intact.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 2 -->
+    <div class="deliverable-group dg-soon">
+      <div class="group-header">
+        <span class="module-tag" style="background: var(--purple-light); color: var(--purple);">Phase 2</span>
+        <span class="group-title">Expansion <span class="soon-pill">Scoped by end of month 2</span></span>
+      </div>
+      <div class="deliverable-row">
+        <div class="del-ref">→</div>
+        <div>
+          <div class="del-name">Deeper tool orchestration mid-call</div>
+          <div class="del-desc">The AI Employee calling Mavenoid and Narvar live during the conversation to run diagnostics and pull tracking, one unbroken flow for the customer.</div>
+        </div>
+      </div>
+      <div class="deliverable-row">
+        <div class="del-ref">→</div>
+        <div>
+          <div class="del-name">Automated warranty orders</div>
+          <div class="del-desc">Warranty drafts created automatically once eligibility is confirmed, so the team approves instead of building each one by hand.</div>
+        </div>
+      </div>
+      <div class="deliverable-row">
+        <div class="del-ref">→</div>
+        <div>
+          <div class="del-name">Product-signal intelligence &amp; analytics</div>
+          <div class="del-desc">Every interaction tagged by product and component, surfacing failure trends to the product team, with one analytics view across the whole stack.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PASS-THROUGH COSTS -->
+<section class="passthrough" id="passthrough">
+  <div class="container">
+    <div class="tag">AI Employee variable cost</div>
+    <h2 class="section-title" style="margin-top: 16px;">Pass-through running cost.</h2>
+    <p class="section-sub" style="margin-bottom: 40px;">The package includes 1,000 AI Employee call-minutes every week. Beyond that allowance, infrastructure (Retell + LLM + Twilio) is passed through directly to Super73 at cost, with no markup from Supernal. The retainer covers build and maintenance.</p>
+
+    <div class="pt-card">
+      <div class="pt-card-label">AI Employee usage · Retell + LLM + Twilio</div>
+      <div class="pt-cols">
+        <div class="pt-col">
+          <div class="pt-col-label">Included in package</div>
+          <div class="pt-col-value">1,000<small>min / wk</small></div>
+          <div class="pt-col-desc">Bundled into the monthly retainer at no extra charge, roughly 4,300 minutes a month.</div>
+        </div>
+        <div class="pt-col">
+          <div class="pt-col-label">Beyond allowance</div>
+          <div class="pt-col-value">16¢<small>/ min</small></div>
+          <div class="pt-col-desc">Pass-through rate on minutes above the weekly allowance. Billed at cost, no markup.</div>
+        </div>
+        <div class="pt-col">
+          <div class="pt-col-label">Estimated overage</div>
+          <div class="pt-col-value">$0<small>to start</small></div>
+          <div class="pt-col-desc">Most weeks expected within the included allowance. Overage only applies once volume exceeds 1,000 min / week.</div>
+        </div>
+      </div>
+      <div class="pt-note"><strong>Note:</strong> Actual call volume to be confirmed against Super73's telephony data during discovery. Only minutes beyond the weekly allowance are billed, at 16¢/min pass-through.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK TOGETHER -->
+<section class="how-we-work" id="how-we-work">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">How we work together</div>
+      <h2 class="section-title">Super73 leads. Supernal extends your capacity.</h2>
+      <p class="section-sub">Super73 controls the roadmap at all times. Resequence at any monthly planning session. Clean exit at any point. Everything we build lives in Super73's accounts.</p>
+    </div>
+    <div class="hww-grid">
+      <div class="hww-card">
+        <div class="hww-title">Cadence</div>
+        <div class="hww-desc">Weekly working sync with Super73's point of contact. Monthly planning session to confirm deliverables in scope and resequence as priorities shift. Quarterly strategy review to surface new opportunities from the strategy layer.</div>
+      </div>
+      <div class="hww-card">
+        <div class="hww-title">Control</div>
+        <div class="hww-desc">Super73 approves every deliverable before it ships. The roadmap is yours to reorder at any monthly session. No locked scope, no billing surprises for changes in direction.</div>
+      </div>
+      <div class="hww-card">
+        <div class="hww-title">Ownership</div>
+        <div class="hww-desc">All code, data, infrastructure, and integrations owned by Super73 from day one. Clean exit at 30 days notice with full documentation. Nothing we build lives in Supernal's accounts.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMERCIALS -->
+<section class="commercials" id="commercials">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Investment</div>
+      <h2 class="section-title">One price, clearly broken down.</h2>
+      <p class="section-sub">Twelve months, one active build moving at all times, strategy layer throughout. No build/maintenance split, no hidden upkeep charges, no contract amendments to resequence.</p>
+    </div>
+
+    <div class="commercial-card">
+      <div class="commercial-head">
+        <div class="commercial-eyebrow">
+          Monthly retainer · 12-month engagement
+          <span class="commercial-badge">Recommended start</span>
+        </div>
+        <div class="commercial-name">Build + Strategy</div>
+        <div class="commercial-tagline">One active build moving at all times · strategy layer throughout · weekly syncs</div>
+        <div class="commercial-price">$6,000<small>/mo</small></div>
+        <div class="commercial-breakdown">
+          <div class="breakdown-item">
+            <div class="breakdown-label">Strategy retainer</div>
+            <div class="breakdown-amount">$2,000</div>
+            <div class="breakdown-desc">Fixed monthly. AI strategy layer, weekly syncs, roadmap advisory, monthly + quarterly reviews. Runs across all twelve months independent of which build is active.</div>
+          </div>
+          <div class="breakdown-item">
+            <div class="breakdown-label">Build Phase 1</div>
+            <div class="breakdown-amount">$4,000</div>
+            <div class="breakdown-desc">Builds, launches, and maintains the Phase 1 AI Employee: the unified foundation and the AI Employee on top. Phase 2 expansion continues under the same line once it's scoped and begins.</div>
+          </div>
+        </div>
+      </div>
+      <div class="commercial-body">
+        <div class="commercial-meta">
+          <div class="commercial-meta-item">
+            <div class="commercial-meta-label">Total commitment</div>
+            <div class="commercial-meta-value">$72,000 <small>/ 12 mo</small></div>
+          </div>
+          <div class="commercial-meta-item">
+            <div class="commercial-meta-label">Contract term</div>
+            <div class="commercial-meta-value">12 months</div>
+          </div>
+        </div>
+        <ul class="commercial-features">
+          <li>A staffed Supernal pod: platform engineering, AI strategy, and infrastructure support. Team composition adapts as priorities shift</li>
+          <li>Roadmap delivery at a sustained monthly cadence, in the order Super73 sets</li>
+          <li>Continuous refinement and tuning of every surface already shipped. Same fee, no extra charge</li>
+          <li>Monthly planning session: resequence priorities, swap deliverables of equal scope, no contract amendments needed</li>
+          <li>Weekly working sync with Super73's point of contact and strategic decision-maker</li>
+          <li>All code, data, and infrastructure owned by Super73 from day one</li>
+          <li>AI Employee infrastructure (Retell + LLM + Twilio) billed directly to Super73 at cost. No markup, scales with call volume</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">Supernal × Super73</div>
+      <div class="footer-meta">Confidential · Prepared for Super73 · June 2026</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const sections = ['overview','roadmap','deliverables','how-we-work','commercials'];
+const navLinks = document.querySelectorAll('.header-nav a');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id);
+      });
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+sections.forEach(id => {
+  const el = document.getElementById(id);
+  if (el) obs.observe(el);
+});
+</script>
+</body>
+</html>
