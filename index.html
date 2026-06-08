@@ -157,6 +157,7 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
 .ms-soon .ms-head { border-bottom-style: dashed; }
 .ms-num { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; color: #fff; }
 .ms-num.n-blue { background: var(--blue); } .ms-num.n-green { background: var(--green); } .ms-num.n-purple { background: var(--purple); }
+.ms-num.n-ghost { background: transparent; border: 2px dashed var(--purple); color: var(--purple); font-size: 22px; }
 .ms-head-text { flex: 1; min-width: 0; }
 .ms-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-4); margin-bottom: 8px; }
 .ms-title { font-family: var(--serif); font-size: 27px; font-weight: 700; line-height: 1.15; margin-bottom: 8px; }
@@ -353,7 +354,7 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
     <div class="section-header">
       <div class="section-eyebrow">Roadmap</div>
       <h2 class="section-title">Ship the first AI Employee. Grow it into a support operating layer.</h2>
-      <p class="section-sub">Phase 1 ships the Customer Service AI Employee in the first three months: a working agent on the phone, scoped tight so it goes live fast. From there, the strategy layer guides its growth toward a broader AI-native support layer, one prioritized capability at a time, rather than a single bot.</p>
+      <p class="section-sub">Phase 1 ships the Customer Service AI Employee in the first four months: a working agent on the phone, scoped tight so it goes live fast. From there, the strategy layer guides its growth toward a broader AI-native support layer, one prioritized capability at a time, rather than a single bot.</p>
     </div>
     <div class="roadmap-modules">
       <div class="module-card mc-blue">
@@ -377,7 +378,7 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
     </div>
     <div class="tl-swim-outer">
       <div class="tl-swim-inner">
-        <div class="tl-swim-title">12-month engagement · Phase 1 ships the Customer Service AI Employee · the strategy layer grows it toward a support operating layer</div>
+        <div class="tl-swim-title">12-month engagement · Phase 1 ships the Customer Service AI Employee</div>
         <div class="tl-swim-months">
           <div class="tl-swim-month-label">Track</div>
           <div class="tl-swim-month-cell">M1</div><div class="tl-swim-month-cell">M2</div>
@@ -410,19 +411,18 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
             <div class="tl-bar tl-bar-b-maint" style="grid-column: span 8;">Live, answering real calls</div>
           </div>
           <div class="tl-lane">
-            <div class="tl-lane-label">Expansion<small>Phase 2</small></div>
+            <div class="tl-lane-label">Expansion<small>Phase 2 · not in Build 1</small></div>
             <div class="tl-bar tl-bar-gap" style="grid-column: span 4;"></div>
-            <div class="tl-bar tl-bar-c" style="grid-column: span 4;">Warranty, tagging &amp; analytics</div>
-            <div class="tl-bar tl-bar-c-maint" style="grid-column: span 4;">Live and optimized</div>
+            <div class="tl-bar tl-bar-c-maint" style="grid-column: span 8;">Closed-loop intelligence &amp; future builds · separate scope</div>
           </div>
         </div>
         <div class="tl-milestone-row">
           <div></div>
           <div></div>
           <div><span class="milestone-badge">★ Phase 2 scoped</span></div>
+          <div><span class="milestone-badge">★ Build 1 · AI Employee live</span></div>
+          <div><span class="milestone-badge">★ Expansion begins · separate scope</span></div>
           <div></div>
-          <div><span class="milestone-badge">★ AI Employee live</span></div>
-          <div><span class="milestone-badge">★ Expansion begins · warranty + analytics</span></div>
           <div></div>
           <div></div>
           <div></div>
@@ -433,7 +433,7 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
         </div>
       </div>
     </div>
-    <p class="roadmap-footnote">Phase 1, the scope of this proposal, ships the Customer Service AI Employee in the first three months. Phase 2 is scoped by the end of month 2 and begins once the AI Employee is live and stable. Phase 2 items are prioritized through the strategy layer and implemented through monthly build capacity; larger expansion lanes can be added as an expanded portfolio.</p>
+    <p class="roadmap-footnote">Phase 1, the scope of this proposal, ships the Customer Service AI Employee: Build 1 completes by month 4. Expansion runs across the following eight months and is a separate scope, not included in Build 1. Phase 2 is scoped by the end of month 2 and begins once the AI Employee is live and stable; its items are prioritized through the strategy layer and added through the monthly build capacity.</p>
   </div>
 </section>
 
@@ -532,9 +532,9 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
       <!-- MILESTONE 3 -->
       <div class="ms-card ms-soon">
         <div class="ms-head">
-          <div class="ms-num n-purple">3</div>
+          <div class="ms-num n-ghost">→</div>
           <div class="ms-head-text">
-            <div class="ms-eyebrow">Milestone 3 · Expansion</div>
+            <div class="ms-eyebrow">Beyond Build 1 · Expansion</div>
             <div class="ms-title">Expansion begins</div>
             <div class="ms-desc">Once the AI Employee is live and stable, the portfolio opens into new lanes, one prioritized at a time.</div>
           </div>
@@ -604,29 +604,29 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
 <section class="passthrough" id="passthrough">
   <div class="container">
     <div class="tag">AI Employee variable cost</div>
-    <h2 class="section-title" style="margin-top: 16px;">Pass-through running cost.</h2>
-    <p class="section-sub" style="margin-bottom: 40px;">The package includes 1,000 AI Employee call-minutes every week. Beyond that allowance, infrastructure (Retell + LLM + Twilio) is passed through directly to Super73 at cost, with no markup from Supernal. The retainer covers build and maintenance.</p>
+    <h2 class="section-title" style="margin-top: 16px;">Running cost, estimated together.</h2>
+    <p class="section-sub" style="margin-bottom: 40px;">The AI Employee's running cost is infrastructure passed through directly to Super73 at cost, with zero markup from Supernal. Voice cost is multi-dimensional (speech-to-text, LLM, text-to-speech, telephony), so we estimate the real rate together in discovery from your call examples, average handle time, and the model architecture the build team selects. The retainer covers build and maintenance.</p>
 
     <div class="pt-card">
-      <div class="pt-card-label">AI Employee usage · Retell + LLM + Twilio</div>
+      <div class="pt-card-label">How variable cost works</div>
       <div class="pt-cols">
         <div class="pt-col">
-          <div class="pt-col-label">Included in package</div>
-          <div class="pt-col-value">1,000<small>min / wk</small></div>
-          <div class="pt-col-desc">Bundled into the monthly retainer at no extra charge, roughly 4,300 minutes a month.</div>
+          <div class="pt-col-label">How it's billed</div>
+          <div class="pt-col-value" style="font-size: 22px; line-height: 1.2;">At cost, no markup</div>
+          <div class="pt-col-desc">Speech, LLM, text-to-speech, and telephony passed through directly to Super73. Supernal adds nothing on top.</div>
         </div>
         <div class="pt-col">
-          <div class="pt-col-label">Beyond allowance</div>
-          <div class="pt-col-value">16¢<small>/ min</small></div>
-          <div class="pt-col-desc">Pass-through rate on minutes above the weekly allowance. Billed at cost, no markup.</div>
+          <div class="pt-col-label">What drives it</div>
+          <div class="pt-col-value" style="font-size: 22px; line-height: 1.2;">Call length + model</div>
+          <div class="pt-col-desc">Cost grows with conversation duration and model tier, not a flat per-minute. We start lean and escalate models only when the workload demands it.</div>
         </div>
         <div class="pt-col">
-          <div class="pt-col-label">Usage</div>
-          <div class="pt-col-value" style="font-size: 22px; line-height: 1.2;">Reviewed in discovery</div>
-          <div class="pt-col-desc">The included allowance is sized to Super73's real call patterns before anything is billed.</div>
+          <div class="pt-col-label">How we set it</div>
+          <div class="pt-col-value" style="font-size: 22px; line-height: 1.2;">Estimated in discovery</div>
+          <div class="pt-col-desc">We size the rate and a usage allowance together, from real call examples and average handle time, before anything is billed.</div>
         </div>
       </div>
-      <div class="pt-note"><strong>Note:</strong> Volume, average handle time, and seasonal peaks to be confirmed against Super73's telephony data during discovery. Only minutes beyond the weekly allowance are billed, at 16¢/min pass-through.</div>
+      <div class="pt-note"><strong>Note:</strong> Volume, average handle time, and seasonal peaks are confirmed against Super73's telephony data during discovery. No usage is billed until the rate and allowance are agreed.</div>
     </div>
   </div>
 </section>
@@ -705,7 +705,7 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
           <li>Monthly planning session: resequence priorities, swap deliverables of equal scope, no contract amendments needed</li>
           <li>Weekly working sync with Super73's point of contact and strategic decision-maker</li>
           <li>All code, data, and infrastructure owned by Super73 from day one</li>
-          <li>AI Employee infrastructure (Retell + LLM + Twilio) billed directly to Super73 at cost. No markup, scales with call volume</li>
+          <li>AI Employee infrastructure billed directly to Super73 at cost. No markup, scales with call volume</li>
         </ul>
       </div>
     </div>
