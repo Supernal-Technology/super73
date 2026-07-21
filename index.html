@@ -111,6 +111,14 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
 .tl-bar-b-maint { background: var(--green-light); color: var(--green); border: 1px dashed var(--green); }
 .tl-bar-c { background: var(--purple); color: #fff; }
 .tl-bar-c-maint { background: var(--purple-light); color: var(--purple); border: 1px dashed var(--purple); }
+.tl-lane-sub { min-height: 21px; margin-bottom: 2px; }
+.tl-lane-sub .tl-lane-label { font-size: 10px; font-weight: 400; color: var(--text-3); padding-left: 14px; }
+.tl-bar-sub { height: 12px; border-radius: 2px; }
+.tl-bar-sub-a { background: var(--blue-light); border: 1px solid rgba(77,98,217,.35); }
+.tl-bar-sub-b { background: var(--green-light); border: 1px solid rgba(26,158,92,.35); }
+.tl-gate { display: flex; align-items: center; justify-content: center; font-size: 11px; line-height: 1; }
+.tl-gate-a { color: var(--blue); }
+.tl-gate-b { color: var(--green); }
 .tl-milestone-row { display: grid; grid-template-columns: 180px repeat(12, 1fr); padding: 6px 0 2px; border-top: 1px dashed var(--amber-light); margin-top: 4px; min-height: 26px; }
 .milestone-badge { display: inline-block; background: var(--amber-light); color: var(--amber); border: 1px solid rgba(217,119,6,.3); border-radius: var(--radius-pill); font-size: 8.5px; font-weight: 700; padding: 3px 8px; white-space: nowrap; letter-spacing: .04em; }
 .tl-grid-overlay { position: absolute; inset: 0; display: grid; grid-template-columns: 180px repeat(12, 1fr); pointer-events: none; z-index: 0; }
@@ -405,12 +413,64 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
             <div class="tl-bar tl-bar-a" style="grid-column: span 2;">Connect &amp; unify</div>
             <div class="tl-bar tl-bar-a-maint" style="grid-column: span 10;">Kept in sync, always on</div>
           </div>
+          <div class="tl-lane tl-lane-sub">
+            <div class="tl-lane-label">Workflow workshop + scope</div>
+            <div class="tl-bar tl-bar-sub tl-bar-sub-a" style="grid-column: span 1;"></div>
+          </div>
+          <div class="tl-lane tl-lane-sub">
+            <div class="tl-lane-label">Access + sandboxes</div>
+            <div class="tl-bar tl-bar-sub tl-bar-sub-a" style="grid-column: span 2;"></div>
+          </div>
+          <div class="tl-lane tl-lane-sub">
+            <div class="tl-lane-label">KB + Mavenoid migration</div>
+            <div class="tl-bar tl-bar-sub tl-bar-sub-a" style="grid-column: span 2;"></div>
+          </div>
+          <div class="tl-lane tl-lane-sub">
+            <div class="tl-lane-label">Baselines + evaluation set</div>
+            <div class="tl-bar tl-bar-gap" style="grid-column: span 1;"></div>
+            <div class="tl-bar tl-bar-sub tl-bar-sub-a" style="grid-column: span 1;"></div>
+          </div>
+          <div class="tl-lane tl-lane-sub">
+            <div class="tl-lane-label">Foundation acceptance</div>
+            <div class="tl-bar tl-bar-gap" style="grid-column: span 1;"></div>
+            <div class="tl-gate tl-gate-a" style="grid-column: span 1;">◆</div>
+          </div>
           <div class="tl-lane">
             <div class="tl-lane-label">AI Employee<small>Phase 1</small></div>
             <div class="tl-bar tl-bar-gap" style="grid-column: span 1;"></div>
             <div class="tl-bar tl-bar-b" style="grid-column: span 2;">Build</div>
             <div class="tl-bar tl-bar-b" style="grid-column: span 2;">Testing</div>
             <div class="tl-bar tl-bar-b-maint" style="grid-column: span 7;">Live, answering real calls</div>
+          </div>
+          <div class="tl-lane tl-lane-sub">
+            <div class="tl-lane-label">Voice + customer context</div>
+            <div class="tl-bar tl-bar-gap" style="grid-column: span 1;"></div>
+            <div class="tl-bar tl-bar-sub tl-bar-sub-b" style="grid-column: span 2;"></div>
+          </div>
+          <div class="tl-lane tl-lane-sub">
+            <div class="tl-lane-label">Zendesk + transfers + Pulse</div>
+            <div class="tl-bar tl-bar-gap" style="grid-column: span 2;"></div>
+            <div class="tl-bar tl-bar-sub tl-bar-sub-b" style="grid-column: span 1;"></div>
+          </div>
+          <div class="tl-lane tl-lane-sub">
+            <div class="tl-lane-label">Shadow → customer pilot</div>
+            <div class="tl-bar tl-bar-gap" style="grid-column: span 3;"></div>
+            <div class="tl-bar tl-bar-sub tl-bar-sub-b" style="grid-column: span 2;"></div>
+          </div>
+          <div class="tl-lane tl-lane-sub">
+            <div class="tl-lane-label">Traffic ramp + daily QA</div>
+            <div class="tl-bar tl-bar-gap" style="grid-column: span 4;"></div>
+            <div class="tl-bar tl-bar-sub tl-bar-sub-b" style="grid-column: span 1;"></div>
+          </div>
+          <div class="tl-lane tl-lane-sub">
+            <div class="tl-lane-label">Launch review + fixes</div>
+            <div class="tl-bar tl-bar-gap" style="grid-column: span 4;"></div>
+            <div class="tl-bar tl-bar-sub tl-bar-sub-b" style="grid-column: span 2;"></div>
+          </div>
+          <div class="tl-lane tl-lane-sub">
+            <div class="tl-lane-label">Production v1 + BPO gate</div>
+            <div class="tl-bar tl-bar-gap" style="grid-column: span 5;"></div>
+            <div class="tl-gate tl-gate-b" style="grid-column: span 1;">◆</div>
           </div>
           <div class="tl-lane">
             <div class="tl-lane-label">Expansion<small>Phase 2 · not in Build 1</small></div>
@@ -422,10 +482,10 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
           <div></div>
           <div></div>
           <div></div>
-          <div><span class="milestone-badge">★ Phase 2 scoped</span></div>
+          <div></div>
           <div><span class="milestone-badge">★ Testing begins</span></div>
           <div></div>
-          <div><span class="milestone-badge">★ Launch · AI Employee live</span></div>
+          <div><span class="milestone-badge">★ Launch · AI Employee live</span> <span class="milestone-badge">★ Phase 2 scoped</span></div>
           <div><span class="milestone-badge">★ Expansion begins · separate scope</span></div>
           <div></div>
           <div></div>
@@ -433,7 +493,7 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
           <div></div>
           <div></div>
         </div>
-        <p style="margin: 14px 0 0; font-size: 11px; color: var(--text-4); font-style: italic;">Assumes a start date of August 15, 2026 at the latest. November testing and the January launch hold as the fixed anchors: if kickoff shifts, the build phases compress, not the launch.</p>
+        <p style="margin: 14px 0 0; font-size: 11px; color: var(--text-4); font-style: italic;">Assumes a start date of August 15, 2026 at the latest. November testing and the January launch hold as the fixed anchors: if kickoff shifts, the build phases compress, not the launch. ◆ marks an acceptance gate we review together before the next phase begins.</p>
       </div>
     </div>
     <p class="roadmap-footnote">Phase 1, the scope of this proposal, ships the Customer Service AI Employee: build through October, testing against real scenarios from November, and launch in January. Expansion runs from February onward and is a separate scope, not included in Build 1. Phase 2 is scoped by early January and begins once the AI Employee is live and stable; its items are prioritized through the strategy layer and added through the monthly build capacity.</p>
