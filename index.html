@@ -111,7 +111,11 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
 .tl-bar-b-maint { background: var(--green-light); color: var(--green); border: 1px dashed var(--green); }
 .tl-bar-c { background: var(--purple); color: #fff; }
 .tl-bar-c-maint { background: var(--purple-light); color: var(--purple); border: 1px dashed var(--purple); }
-.tl-lane-sub { min-height: 21px; margin-bottom: 2px; }
+.tl-lane-sub { min-height: 21px; margin-bottom: 2px; display: none; }
+.tl-detail .tl-lane-sub { display: grid; }
+.tl-gate-note { display: none; }
+.tl-detail .tl-gate-note { display: inline; }
+.tl-swim-title { -webkit-user-select: none; user-select: none; }
 .tl-lane-sub .tl-lane-label { font-size: 10px; font-weight: 400; color: var(--text-3); padding-left: 14px; }
 .tl-bar-sub { height: 12px; border-radius: 2px; }
 .tl-bar-sub-a { background: var(--blue-light); border: 1px solid rgba(77,98,217,.35); }
@@ -493,7 +497,7 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
           <div></div>
           <div></div>
         </div>
-        <p style="margin: 14px 0 0; font-size: 11px; color: var(--text-4); font-style: italic;">Assumes a start date of August 15, 2026 at the latest. November testing and the January launch hold as the fixed anchors: if kickoff shifts, the build phases compress, not the launch. ◆ marks an acceptance gate we review together before the next phase begins.</p>
+        <p style="margin: 14px 0 0; font-size: 11px; color: var(--text-4); font-style: italic;">Assumes a start date of August 15, 2026 at the latest. November testing and the January launch hold as the fixed anchors: if kickoff shifts, the build phases compress, not the launch. <span class="tl-gate-note">◆ marks an acceptance gate we review together before the next phase begins.</span></p>
       </div>
     </div>
     <p class="roadmap-footnote">Phase 1, the scope of this proposal, ships the Customer Service AI Employee: build through October, testing against real scenarios from November, and launch in January. Expansion runs from February onward and is a separate scope, not included in Build 1. Phase 2 is scoped by early January and begins once the AI Employee is live and stable; its items are prioritized through the strategy layer and added through the monthly build capacity.</p>
@@ -809,6 +813,10 @@ const obs = new IntersectionObserver(entries => {
 sections.forEach(id => {
   const el = document.getElementById(id);
   if (el) obs.observe(el);
+});
+const swimTitle = document.querySelector('.tl-swim-title');
+if (swimTitle) swimTitle.addEventListener('click', () => {
+  swimTitle.closest('.tl-swim-outer').classList.toggle('tl-detail');
 });
 </script>
 </body>
