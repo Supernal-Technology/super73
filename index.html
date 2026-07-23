@@ -128,6 +128,17 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
 .tl-grid-overlay { position: absolute; inset: 0; display: grid; grid-template-columns: 180px repeat(12, 1fr); pointer-events: none; z-index: 0; }
 .tl-grid-col { border-left: 1px dashed var(--border); }
 .roadmap-footnote { margin: 20px 0 0; font-size: 12px; color: var(--text-4); font-style: italic; }
+.roadmap-deps { margin-top: 16px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.roadmap-deps summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 15px 18px; cursor: pointer; list-style: none; -webkit-user-select: none; user-select: none; }
+.roadmap-deps summary::-webkit-details-marker { display: none; }
+.roadmap-deps-title { font-size: 13px; font-weight: 700; }
+.roadmap-deps-sub { margin-top: 2px; font-size: 11px; color: var(--text-4); }
+.roadmap-deps-icon { flex-shrink: 0; color: var(--text-4); font-size: 18px; line-height: 1; transition: transform .15s ease; }
+.roadmap-deps[open] .roadmap-deps-icon { transform: rotate(45deg); }
+.roadmap-deps-body { padding: 0 18px 14px; }
+.roadmap-dep-row { display: grid; grid-template-columns: 140px 1fr; gap: 16px; padding: 11px 0; border-top: 1px solid var(--bg-3); }
+.roadmap-dep-stage { font-size: 12px; font-weight: 700; }
+.roadmap-dep-copy { font-size: 12px; color: var(--text-3); line-height: 1.5; }
 
 /* ROADMAP */
 .roadmap { padding: 80px 0; border-bottom: 1px solid var(--border); }
@@ -186,6 +197,19 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
 .ms-soon .ms-check { color: var(--text-4); }
 .ms-outcome-name { font-size: 15px; font-weight: 600; margin-bottom: 3px; }
 .ms-outcome-desc { font-size: 14px; color: var(--text-2); line-height: 1.5; }
+.tier1-scope { margin-bottom: 24px; padding: 24px; background: var(--green-light); border: 1px solid rgba(26,158,92,.25); border-radius: 12px; }
+.tier1-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 18px; }
+.tier1-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; color: var(--green); margin-bottom: 5px; }
+.tier1-title { font-size: 20px; font-weight: 750; line-height: 1.2; margin-bottom: 6px; }
+.tier1-intro { max-width: 760px; font-size: 13px; color: #24513b; line-height: 1.55; }
+.tier1-badge { flex-shrink: 0; padding: 5px 11px; background: var(--bg); border: 1px solid rgba(26,158,92,.25); border-radius: var(--radius-pill); color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.tier1-rules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.tier1-rule { padding: 13px 14px; background: rgba(255,255,255,.78); border: 1px solid rgba(26,158,92,.16); border-radius: 9px; }
+.tier1-rule-num { color: var(--green); font-size: 10px; font-weight: 800; letter-spacing: .08em; margin-bottom: 3px; }
+.tier1-rule-name { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+.tier1-rule-desc { font-size: 11.5px; color: var(--text-3); line-height: 1.45; }
+.tier1-coverage { margin-top: 14px; padding-top: 13px; border-top: 1px solid rgba(26,158,92,.2); color: #24513b; font-size: 11.5px; line-height: 1.5; }
+.tier1-coverage strong { color: var(--green); }
 
 /* COMMERCIALS */
 .commercials { padding: 80px 0; background: var(--bg-2); border-bottom: 1px solid var(--border); }
@@ -222,6 +246,21 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
 .hww-card { padding: 28px 24px; border: 1px solid var(--border); border-radius: var(--radius-card); background: var(--bg-2); }
 .hww-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
 .hww-desc { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+.kpi-baseline { margin-top: 20px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.kpi-baseline summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 15px 18px; cursor: pointer; list-style: none; -webkit-user-select: none; user-select: none; }
+.kpi-baseline summary::-webkit-details-marker { display: none; }
+.kpi-baseline-title { font-size: 13px; font-weight: 700; }
+.kpi-baseline-sub { margin-top: 2px; font-size: 11px; color: var(--text-4); }
+.kpi-baseline-icon { flex-shrink: 0; color: var(--text-4); font-size: 18px; line-height: 1; transition: transform .15s ease; }
+.kpi-baseline[open] .kpi-baseline-icon { transform: rotate(45deg); }
+.kpi-baseline-body { padding: 0 18px 16px; }
+.kpi-baseline-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--bg-3); }
+.kpi-metric { padding: 16px 18px; border-left: 1px solid var(--bg-3); }
+.kpi-metric:first-child { padding-left: 0; border-left: none; }
+.kpi-metric-value { font-size: 24px; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; }
+.kpi-metric-label { margin-top: 5px; font-size: 11px; font-weight: 600; color: var(--text-2); }
+.kpi-metric-note { margin-top: 2px; font-size: 10px; color: var(--text-4); }
+.kpi-baseline-note { padding-top: 13px; border-top: 1px solid var(--bg-3); font-size: 11px; color: var(--text-4); line-height: 1.5; }
 
 /* FOOTER */
 .site-footer { padding: 32px 0; border-top: 1px solid var(--border); background: var(--bg-2); }
@@ -270,6 +309,19 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
   .ms-head { flex-wrap: wrap; }
   .ms-pill { align-self: flex-start; order: 3; margin-left: 64px; }
   .ms-head, .ms-body { padding-left: 22px; padding-right: 22px; }
+  .tier1-rules { grid-template-columns: 1fr 1fr; }
+  .tier1-head { flex-direction: column; gap: 10px; }
+  .roadmap-dep-row { grid-template-columns: 1fr; gap: 3px; }
+  .kpi-baseline-grid { grid-template-columns: 1fr 1fr; }
+  .kpi-metric:nth-child(3) { padding-left: 0; border-left: none; border-top: 1px solid var(--bg-3); }
+  .kpi-metric:nth-child(4) { border-top: 1px solid var(--bg-3); }
+}
+@media (max-width: 600px) {
+  .tier1-rules { grid-template-columns: 1fr; }
+  .tier1-scope { padding: 18px; }
+  .kpi-baseline-grid { grid-template-columns: 1fr; }
+  .kpi-metric { padding: 13px 0; border-left: none; border-top: 1px solid var(--bg-3); }
+  .kpi-metric:first-child { border-top: none; }
 }
 </style>
 </head>
@@ -326,10 +378,10 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
       <div class="extend-block">
         <div class="built-label" style="color: var(--blue);">What we build on top</div>
         <ul class="extend-items">
-          <li><span class="extend-arrow">→</span><span><strong>First, one customer.</strong> Zendesk, Mavenoid, Narvar, and Shopify unified into one profile, so the AI Employee knows who's calling, their bike, and their full history from the first second.</span></li>
-          <li><span class="extend-arrow">→</span><span><strong>Then, one front door.</strong> It answers the phone, handles the everyday cases on its own, and warm-transfers the rest with full context.</span></li>
+          <li><span class="extend-arrow">→</span><span><strong>First, one customer.</strong> Zendesk, Mavenoid, Narvar, and Shopify unified into one profile, so the AI Employee uses matched customer, bike, and support records to begin with the right context.</span></li>
+          <li><span class="extend-arrow">→</span><span><strong>Then, one front door.</strong> It answers the phone, resolves approved Tier 1 cases, and warm-transfers the rest with full context.</span></li>
           <li><span class="extend-arrow">→</span><span><strong>Nothing gets ripped out.</strong> Zendesk stays the system of record; the AI Employee works on top of the existing tools, it doesn't replace them.</span></li>
-          <li><span class="extend-arrow">→</span><span><strong>Then we scale.</strong> In Phase 2 every interaction becomes signal: failure trends to engineering, automatic warranty, one analytics view across the stack.</span></li>
+          <li><span class="extend-arrow">→</span><span><strong>Then we scale.</strong> After launch, new lanes can turn every interaction into signal: failure trends to engineering, automatic warranty, and one analytics view across the stack.</span></li>
         </ul>
       </div>
     </div>
@@ -367,26 +419,26 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
     <div class="section-header">
       <div class="section-eyebrow">Roadmap</div>
       <h2 class="section-title">Ship the first AI Employee. Grow it into a support operating layer.</h2>
-      <p class="section-sub">Phase 1 ships the Customer Service AI Employee: testing against real customer scenarios by November, live in January. From there, the strategy layer guides its growth toward a broader AI-native support layer, one prioritized capability at a time, rather than a single bot.</p>
+      <p class="section-sub">Build 1 ships the unified foundation and Customer Service AI Employee: testing against real customer scenarios by November, live in January. From there, the strategy layer guides its growth one prioritized lane at a time.</p>
     </div>
     <div class="roadmap-modules">
       <div class="module-card mc-blue">
-        <div class="module-tag" style="background: var(--blue-light); color: var(--blue-dark);">Phase 1</div>
+        <div class="module-tag" style="background: var(--blue-light); color: var(--blue-dark);">Build 1 · Milestone 1</div>
         <div class="module-title">Unified Foundation</div>
         <div class="module-desc">Connect Zendesk, Mavenoid, Narvar, and Shopify into one customer view, and bring the knowledge base into a place the AI Employee can answer from. The base the agent reasons over.</div>
         <div class="module-meta">The groundwork for the AI Employee</div>
       </div>
       <div class="module-card mc-green">
-        <div class="module-tag" style="background: var(--green-light); color: var(--green);">Phase 1</div>
+        <div class="module-tag" style="background: var(--green-light); color: var(--green);">Build 1 · Milestone 2</div>
         <div class="module-title">Customer Service AI Employee</div>
-        <div class="module-desc">Phone-first. It answers, resolves the everyday questions from the knowledge base, routes to the right team, and warm-transfers with full context. Every call logged in Zendesk.</div>
+        <div class="module-desc">Phone-first. It answers, resolves approved Tier 1 cases from the knowledge base, routes to the right team, and warm-transfers with full context. Every call logged in Zendesk.</div>
         <div class="module-meta">The deliverable that goes live</div>
       </div>
       <div class="module-card mc-soon">
-        <div class="module-tag" style="background: var(--purple-light); color: var(--purple);">Phase 2 · Expansion</div>
+        <div class="module-tag" style="background: var(--purple-light); color: var(--purple);">Expansion lanes</div>
         <div class="module-title">Closed-Loop Intelligence</div>
         <div class="module-desc">Deeper tool orchestration, automated warranty, and product-signal intelligence. Prioritized through the strategy layer; larger lanes grow the portfolio.</div>
-        <div class="module-meta">Scoped by early January</div>
+        <div class="module-meta">Next lane scoped after launch</div>
       </div>
     </div>
     <div class="tl-swim-outer">
@@ -413,20 +465,20 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
             <div class="tl-bar tl-bar-strategy" style="grid-column: span 12;">AI strategy, roadmap, and weekly syncs</div>
           </div>
           <div class="tl-lane">
-            <div class="tl-lane-label">Foundation<small>Phase 1</small></div>
+            <div class="tl-lane-label">Foundation<small>Milestone 1</small></div>
             <div class="tl-bar tl-bar-a" style="grid-column: span 2;">Connect &amp; unify</div>
             <div class="tl-bar tl-bar-a-maint" style="grid-column: span 10;">Kept in sync, always on</div>
           </div>
           <div class="tl-lane tl-lane-sub">
-            <div class="tl-lane-label">Scope defined</div>
+            <div class="tl-lane-label">Scope + KPIs defined</div>
             <div class="tl-bar tl-bar-sub tl-bar-sub-a" style="grid-column: span 1;"></div>
           </div>
           <div class="tl-lane tl-lane-sub">
-            <div class="tl-lane-label">Systems connected (Zendesk, Narvar, Shopify)</div>
+            <div class="tl-lane-label">Systems connected</div>
             <div class="tl-bar tl-bar-sub tl-bar-sub-a" style="grid-column: span 2;"></div>
           </div>
           <div class="tl-lane tl-lane-sub">
-            <div class="tl-lane-label">Knowledge base built (Mavenoid migrated)</div>
+            <div class="tl-lane-label">Knowledge base built</div>
             <div class="tl-bar tl-bar-sub tl-bar-sub-a" style="grid-column: span 2;"></div>
           </div>
           <div class="tl-lane tl-lane-sub">
@@ -435,15 +487,15 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
             <div class="tl-bar tl-bar-sub tl-bar-sub-a" style="grid-column: span 1;"></div>
           </div>
           <div class="tl-lane tl-lane-sub">
-            <div class="tl-lane-label">Foundation sign-off</div>
+            <div class="tl-lane-label">Foundation approved</div>
             <div class="tl-bar tl-bar-gap" style="grid-column: span 1;"></div>
             <div class="tl-gate tl-gate-a" style="grid-column: span 1;">◆</div>
           </div>
           <div class="tl-lane">
-            <div class="tl-lane-label">AI Employee<small>Phase 1</small></div>
+            <div class="tl-lane-label">AI Employee<small>Milestone 2</small></div>
             <div class="tl-bar tl-bar-gap" style="grid-column: span 1;"></div>
             <div class="tl-bar tl-bar-b" style="grid-column: span 2;">Build</div>
-            <div class="tl-bar tl-bar-b" style="grid-column: span 2;">Testing</div>
+            <div class="tl-bar tl-bar-b" style="grid-column: span 2;">Test &amp; ramp</div>
             <div class="tl-bar tl-bar-b-maint" style="grid-column: span 7;">Live, answering real calls</div>
           </div>
           <div class="tl-lane tl-lane-sub">
@@ -452,7 +504,7 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
             <div class="tl-bar tl-bar-sub tl-bar-sub-b" style="grid-column: span 2;"></div>
           </div>
           <div class="tl-lane tl-lane-sub">
-            <div class="tl-lane-label">Escalation rules loaded (approved decision tree)</div>
+            <div class="tl-lane-label">Tier 1 rules loaded</div>
             <div class="tl-bar tl-bar-gap" style="grid-column: span 2;"></div>
             <div class="tl-bar tl-bar-sub tl-bar-sub-b" style="grid-column: span 1;"></div>
           </div>
@@ -462,29 +514,29 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
             <div class="tl-bar tl-bar-sub tl-bar-sub-b" style="grid-column: span 1;"></div>
           </div>
           <div class="tl-lane tl-lane-sub">
-            <div class="tl-lane-label">Tested on real calls</div>
+            <div class="tl-lane-label">Scenario + real-call tests</div>
             <div class="tl-bar tl-bar-gap" style="grid-column: span 3;"></div>
             <div class="tl-bar tl-bar-sub tl-bar-sub-b" style="grid-column: span 2;"></div>
           </div>
           <div class="tl-lane tl-lane-sub">
-            <div class="tl-lane-label">Call volume ramped</div>
+            <div class="tl-lane-label">Controlled call ramp</div>
             <div class="tl-bar tl-bar-gap" style="grid-column: span 4;"></div>
             <div class="tl-bar tl-bar-sub tl-bar-sub-b" style="grid-column: span 1;"></div>
           </div>
           <div class="tl-lane tl-lane-sub">
-            <div class="tl-lane-label">Final review and fixes</div>
+            <div class="tl-lane-label">Review + fixes</div>
             <div class="tl-bar tl-bar-gap" style="grid-column: span 4;"></div>
             <div class="tl-bar tl-bar-sub tl-bar-sub-b" style="grid-column: span 2;"></div>
           </div>
           <div class="tl-lane tl-lane-sub">
-            <div class="tl-lane-label">Launch sign-off</div>
+            <div class="tl-lane-label">Launch approved</div>
             <div class="tl-bar tl-bar-gap" style="grid-column: span 5;"></div>
             <div class="tl-gate tl-gate-b" style="grid-column: span 1;">◆</div>
           </div>
           <div class="tl-lane">
-            <div class="tl-lane-label">Expansion<small>Phase 2 · not in Build 1</small></div>
+            <div class="tl-lane-label">Expansion<small>New workstreams</small></div>
             <div class="tl-bar tl-bar-gap" style="grid-column: span 6;"></div>
-            <div class="tl-bar tl-bar-c-maint" style="grid-column: span 6;">Closed-loop intelligence &amp; future builds · separate scope</div>
+            <div class="tl-bar tl-bar-c-maint" style="grid-column: span 6;">Expansion lanes · scoped separately</div>
           </div>
         </div>
         <div class="tl-milestone-row">
@@ -494,18 +546,45 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
           <div></div>
           <div><span class="milestone-badge">★ Testing begins</span></div>
           <div></div>
-          <div><span class="milestone-badge">★ Launch · AI Employee live</span> <span class="milestone-badge">★ Phase 2 scoped</span></div>
-          <div><span class="milestone-badge">★ Expansion begins · separate scope</span></div>
+          <div><span class="milestone-badge">★ Launch · AI Employee live</span> <span class="milestone-badge">★ Next lane scoped</span></div>
+          <div><span class="milestone-badge">★ Next lane begins · separate scope</span></div>
           <div></div>
           <div></div>
           <div></div>
           <div></div>
           <div></div>
         </div>
-        <p style="margin: 14px 0 0; font-size: 11px; color: var(--text-4); font-style: italic;">Assumes a start date of August 15, 2026 at the latest. November testing and the January launch hold as the fixed anchors: if kickoff shifts, the build phases compress, not the launch. <span class="tl-gate-note">◆ marks an acceptance gate we review together before the next phase begins.</span></p>
+        <p style="margin: 14px 0 0; font-size: 11px; color: var(--text-4); font-style: italic;">Assumes kickoff by August 15, 2026. November testing and the January launch remain the target anchors. <span class="tl-gate-note">◆ marks an acceptance gate we review together before the next phase begins.</span></p>
       </div>
     </div>
-    <p class="roadmap-footnote">Phase 1, the scope of this proposal, ships the Customer Service AI Employee: build through October, testing against real scenarios from November, and launch in January. Expansion runs from February onward and is a separate scope, not included in Build 1. Phase 2 is scoped by early January and begins once the AI Employee is live and stable; its items are prioritized through the strategy layer and added through the monthly build capacity.</p>
+    <details class="roadmap-deps">
+      <summary>
+        <div>
+          <div class="roadmap-deps-title">Dependencies to keep the plan on track</div>
+          <div class="roadmap-deps-sub">Access and inputs provided by Super73</div>
+        </div>
+        <span class="roadmap-deps-icon">+</span>
+      </summary>
+      <div class="roadmap-deps-body">
+        <div class="roadmap-dep-row">
+          <div class="roadmap-dep-stage">Foundation</div>
+          <div class="roadmap-dep-copy">Zendesk, Narvar, and Shopify access; Mavenoid export; existing product and support documentation.</div>
+        </div>
+        <div class="roadmap-dep-row">
+          <div class="roadmap-dep-stage">Tier 1 build</div>
+          <div class="roadmap-dep-copy">Approved troubleshooting workflow, escalation destinations, phone routing, and Super73 voice guidance.</div>
+        </div>
+        <div class="roadmap-dep-row">
+          <div class="roadmap-dep-stage">Test &amp; ramp</div>
+          <div class="roadmap-dep-copy">Representative customer scenarios, internal test participation, and weekly feedback on results.</div>
+        </div>
+        <div class="roadmap-dep-row">
+          <div class="roadmap-dep-stage">Launch</div>
+          <div class="roadmap-dep-copy">Final transfer routing, recording and privacy approval, human fallback readiness, and launch approval.</div>
+        </div>
+      </div>
+    </details>
+    <p class="roadmap-footnote">Build 1 runs through October, tests against real scenarios in November, ramps controlled call volume in December, and launches in January. After launch, smaller improvements can use the existing monthly capacity; new operational lanes are scoped separately.</p>
   </div>
 </section>
 
@@ -515,7 +594,7 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
     <div class="section-header">
       <div class="section-eyebrow">Milestones</div>
       <h2 class="section-title">The milestones.</h2>
-      <p class="section-sub">Phase 1 ships in two milestones, the unified foundation and the AI Employee on top. A third opens the door to expansion. No metrics or targets here; we set those together at the scoping session, against your real data.</p>
+      <p class="section-sub">Build 1 ships in two milestones: the unified foundation and the AI Employee on top. From there, new lanes open one workstream at a time. No metrics or targets here; we set those together at the scoping session, against your real data.</p>
     </div>
 
     <div class="ms-list">
@@ -558,7 +637,7 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
             <div class="ms-check">✓</div>
             <div>
               <div class="ms-outcome-name">A knowledge base the agent can answer from</div>
-              <div class="ms-outcome-desc">Product docs, FAQs, warranty basics, and the troubleshooting decision tree your team has already validated, including the knowledge that today lives in people's heads, brought into one place the AI Employee can draw on.</div>
+              <div class="ms-outcome-desc">Product docs, FAQs, warranty basics, and the troubleshooting workflow your CX team shared and approved for the initial Tier 1 scope, including the knowledge that today lives in people's heads, brought into one place the AI Employee can draw on.</div>
             </div>
           </div>
         </div>
@@ -571,31 +650,74 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
           <div class="ms-head-text">
             <div class="ms-eyebrow">Milestone 2 · Customer Service AI Employee</div>
             <div class="ms-title">The AI Employee, live</div>
-            <div class="ms-desc">A phone-first agent answering, resolving the everyday cases, and warm-transferring the rest with full context. Tested through November and December, live in January.</div>
+            <div class="ms-desc">A phone-first agent answering, resolving approved Tier 1 cases, and warm-transferring the rest with full context. Tested through November and December, live in January.</div>
           </div>
           <span class="ms-pill p-green">4 outcomes</span>
         </div>
         <div class="ms-body">
+          <div class="tier1-scope">
+            <div class="tier1-head">
+              <div>
+                <div class="tier1-eyebrow">Initial live scope</div>
+                <div class="tier1-title">Tier 1 resolution rules</div>
+                <div class="tier1-intro">The AI Employee launches with Super73's troubleshooting workflow as its first approved resolution scope. It starts with the safest and most likely cause, guides the customer through approved non-invasive checks, never jumps to parts replacement, and escalates once the Tier 1 path is exhausted.</div>
+              </div>
+              <div class="tier1-badge">Approved workflow</div>
+            </div>
+            <div class="tier1-rules">
+              <div class="tier1-rule">
+                <div class="tier1-rule-num">01</div>
+                <div class="tier1-rule-name">Identify the case</div>
+                <div class="tier1-rule-desc">Confirm the customer, bike and model, purchase context, symptom, and any error code.</div>
+              </div>
+              <div class="tier1-rule">
+                <div class="tier1-rule-num">02</div>
+                <div class="tier1-rule-name">Screen for safety</div>
+                <div class="tier1-rule-desc">Stop and escalate immediately for heat, burning smell, battery damage, or another defined safety condition.</div>
+              </div>
+              <div class="tier1-rule">
+                <div class="tier1-rule-num">03</div>
+                <div class="tier1-rule-name">Start with the likely cause</div>
+                <div class="tier1-rule-desc">Check power, charge, settings, battery seating, brake cutoff, and relevant connections first.</div>
+              </div>
+              <div class="tier1-rule">
+                <div class="tier1-rule-num">04</div>
+                <div class="tier1-rule-name">Guide and verify</div>
+                <div class="tier1-rule-desc">Walk through one approved step at a time and use the result to determine what happens next.</div>
+              </div>
+              <div class="tier1-rule">
+                <div class="tier1-rule-num">05</div>
+                <div class="tier1-rule-name">Never guess or jump to replacement</div>
+                <div class="tier1-rule-desc">Use approved knowledge only. Parts replacement and technician-only diagnosis stay outside Tier 1.</div>
+              </div>
+              <div class="tier1-rule">
+                <div class="tier1-rule-num">06</div>
+                <div class="tier1-rule-name">Resolve or warm-transfer</div>
+                <div class="tier1-rule-desc">Resolve a clear outcome; otherwise transfer the case, customer context, and steps already completed.</div>
+              </div>
+            </div>
+            <div class="tier1-coverage"><strong>Initial workflow coverage:</strong> power and shutdown, charging and battery basics, motor engagement, throttle and pedal assist, displays and error-code identification, brakes and speed sensors, lights, Bluetooth, water exposure, overheating, and abnormal-noise safety triage.</div>
+          </div>
           <div class="ms-outcomes-label">Outcomes</div>
           <div class="ms-outcome">
             <div class="ms-check">✓</div>
             <div>
-              <div class="ms-outcome-name">Answers the phone and resolves the everyday cases</div>
-              <div class="ms-outcome-desc">Picks up, understands the request, and handles the common questions and step-by-step troubleshooting directly from the knowledge base, following the decision tree your CS team validated, in Super73's voice.</div>
+              <div class="ms-outcome-name">Answers the phone and resolves approved Tier 1 cases</div>
+              <div class="ms-outcome-desc">Picks up, understands the request, and follows the approved Tier 1 workflow in Super73's voice. It resolves safe cases directly and escalates safety issues, unsupported questions, and technician-only diagnostics.</div>
             </div>
           </div>
           <div class="ms-outcome">
             <div class="ms-check">✓</div>
             <div>
               <div class="ms-outcome-name">Routes and warm-transfers with full context</div>
-              <div class="ms-outcome-desc">When a human is needed, it sends the call to the right team (Retail / Dealer / Service) and hands them the full story: who the customer is, the bike, and what's already been tried. The customer never repeats themselves.</div>
+              <div class="ms-outcome-desc">When a human is needed, it sends the call to the right team (Retail / Dealer / Service) with the customer, bike, issue, and completed steps, minimizing repetition.</div>
             </div>
           </div>
           <div class="ms-outcome">
             <div class="ms-check">✓</div>
             <div>
               <div class="ms-outcome-name">Nothing is lost between the agent and your team</div>
-              <div class="ms-outcome-desc">Zendesk stays the system of record: every conversation is written back automatically, so any human who picks it up later has the full history. No gaps, no re-asking, a clean audit trail.</div>
+              <div class="ms-outcome-desc">Zendesk stays the system of record: every conversation is written back automatically, giving the next person a complete handoff and a clean audit trail.</div>
             </div>
           </div>
           <div class="ms-outcome">
@@ -613,18 +735,18 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
         <div class="ms-head">
           <div class="ms-num n-ghost">→</div>
           <div class="ms-head-text">
-            <div class="ms-eyebrow">Beyond Build 1 · Expansion</div>
-            <div class="ms-title">Expansion begins</div>
-            <div class="ms-desc">Once the AI Employee is live and stable, the portfolio opens into new lanes, one prioritized at a time.</div>
+            <div class="ms-eyebrow">Beyond Build 1 · Expansion lanes</div>
+            <div class="ms-title">The next lane opens</div>
+            <div class="ms-desc">Once the AI Employee is live and stable, the next opportunities are prioritized. Smaller improvements enter the existing monthly capacity; new operational lanes are scoped separately.</div>
           </div>
-          <span class="ms-pill p-purple">Phase 2 · scoped by early January</span>
+          <span class="ms-pill p-purple">Next lane scoped after launch</span>
         </div>
         <div class="ms-body">
           <div class="ms-outcome">
             <div class="ms-check">→</div>
             <div>
-              <div class="ms-outcome-name">The portfolio opens into new lanes</div>
-              <div class="ms-outcome-desc">Expansion is scoped, prioritized, and added one lane at a time. The lanes it can open into are below.</div>
+              <div class="ms-outcome-name">New workstreams open one lane at a time</div>
+              <div class="ms-outcome-desc">Each new lane is prioritized and scoped before it enters the roadmap. The lanes it can open into are below.</div>
             </div>
           </div>
         </div>
@@ -729,9 +851,41 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
       </div>
       <div class="hww-card">
         <div class="hww-title">Ownership</div>
-        <div class="hww-desc">All code, data, infrastructure, and integrations owned by Super73 from day one. Clean exit at 30 days notice with full documentation. Nothing we build lives in Supernal's accounts.</div>
+        <div class="hww-desc">All code, data, infrastructure, and integrations owned by Super73 from day one, with full documentation throughout. Nothing we build lives in Supernal's accounts.</div>
       </div>
     </div>
+    <details class="kpi-baseline">
+      <summary>
+        <div>
+          <div class="kpi-baseline-title">Current KPI baseline</div>
+          <div class="kpi-baseline-sub">Baseline inputs for initial scoping</div>
+        </div>
+        <span class="kpi-baseline-icon">+</span>
+      </summary>
+      <div class="kpi-baseline-body">
+        <div class="kpi-baseline-grid">
+          <div class="kpi-metric">
+            <div class="kpi-metric-value">6.75 min</div>
+            <div class="kpi-metric-label">Average handle time</div>
+          </div>
+          <div class="kpi-metric">
+            <div class="kpi-metric-value">9 hrs</div>
+            <div class="kpi-metric-label">Average full-resolution time</div>
+            <div class="kpi-metric-note">Reported alongside a 213.8-hour aggregate</div>
+          </div>
+          <div class="kpi-metric">
+            <div class="kpi-metric-value">20,665</div>
+            <div class="kpi-metric-label">YTD ticket volume</div>
+          </div>
+          <div class="kpi-metric">
+            <div class="kpi-metric-value">$79,268</div>
+            <div class="kpi-metric-label">Annual Mavenoid + Narvar spend</div>
+            <div class="kpi-metric-note">$46,000 + $33,268</div>
+          </div>
+        </div>
+        <div class="kpi-baseline-note">During initial scoping, we will align on KPI definitions and the measurement approach. These figures establish the starting point, not a guaranteed savings case.</div>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -760,9 +914,9 @@ body { font-family: var(--sans); color: var(--text); background: var(--bg); -web
             <div class="breakdown-desc">Fixed monthly. AI strategy layer, weekly syncs, roadmap advisory, monthly + quarterly reviews. Runs across all twelve months independent of which build is active.</div>
           </div>
           <div class="breakdown-item">
-            <div class="breakdown-label">Customer Service Portfolio · Phase 1</div>
+            <div class="breakdown-label">Customer Service Portfolio · Build 1</div>
             <div class="breakdown-amount">$4,000</div>
-            <div class="breakdown-desc">The initial portfolio: ships the unified foundation and the Customer Service AI Employee on top, then keeps them live and maintained. Phase 2 items are prioritized through the strategy layer and implemented through the monthly build capacity. Larger expansion lanes can be added as an expanded portfolio.</div>
+            <div class="breakdown-desc">The initial portfolio ships and maintains the unified foundation and Customer Service AI Employee. Ongoing refinements and smaller adjacent improvements are included in the monthly capacity. New lanes requiring materially different workflows, integrations, or infrastructure are scoped separately.</div>
           </div>
         </div>
       </div>
